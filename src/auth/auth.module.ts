@@ -11,18 +11,18 @@ import { JwtStrategy } from './jwt.strategy';
 @Module({
   imports: [
     PassportModule.register({
-      defaultStrategy: "jwt"
+      defaultStrategy: 'jwt',
     }),
     JwtModule.register({
       secret: 'topsecret',
       signOptions: {
-        expiresIn: 3600
-      }
+        expiresIn: 3600,
+      },
     }),
-    TypeOrmModule.forFeature([User])
+    TypeOrmModule.forFeature([User]),
   ],
-  providers: [AuthService, JwtStrategy, UsersRepository],
   controllers: [AuthController],
-  exports: [JwtStrategy, PassportModule]
+  providers: [AuthService, JwtStrategy, UsersRepository],
+  exports: [JwtStrategy, PassportModule],
 })
-export class AuthModule { }
+export class AuthModule {}
