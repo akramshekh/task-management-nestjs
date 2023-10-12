@@ -8,7 +8,7 @@ import { User } from '../auth/user.entity';
 
 // @EntityRepository(Task)
 @Injectable()
-export class TaskRepository extends Repository<Task> {
+export class TasksRepository extends Repository<Task> {
   private logger = new Logger('TaskRepository', { timestamp: true })
 
   constructor(private dataSource: DataSource) {
